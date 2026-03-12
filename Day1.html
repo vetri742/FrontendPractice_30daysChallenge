@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavigationBar</title>
+    <link rel="stylesheet" href="Day1.css">
+</head>
+<body>
+<nav class="navbar">
+     <img src="./Imge/download.png" height="40px">
+    <div class="navlinks">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div> 
+       
+
+    <button class="btn">Sign In</button>
+    <div class="menu-toggle">
+        <img src="./Imge/5358649.png" height="50px"> 
+    </div>
+</nav>
+<script>
+    const menu = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".navlinks");
+
+menu.addEventListener("click", ()=>{
+navLinks.classList.toggle("active")
+})
+</script>
+    
+</body>
+</html>
