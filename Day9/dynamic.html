@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+</head>
+<body class="bg-dark text-light">
+    <div class="container text-center my-5">
+               <select name="" id="filter" class="w-50 px-3 py-4">
+            <option value="all">All</option>
+            <option value="kochi">Kochi</option>
+            <option value="chennai">Chennai</option>
+            <option value="bangalore">Bangalore</option>
+           </select>
+        </div>
+    </div>
+    <div class="container d-flex my-5" id="ctn">
+      
+        <div class="row">
+       
+
+        </div>
+    </div>
+    
+</body>
+<script>
+    const jobs=[
+        {
+        company_name:"IBM",
+        role:"Full stack developer",
+        location:"kochi",
+        salary:25000
+
+        },
+            {
+        company_name:"TCS",
+        role:"Data Analyst",
+        location:"chennai",
+        salary:15000
+
+        },
+        {
+        company_name:"ZOHO",
+        role:"Software Tester",
+        location:"bangalore",
+        salary:20000
+
+        }
+    ]
+    const ctn=document.getElementById("ctn")
+
+    function display(jobarray)
+    {
+        ctn.innerHTML=""
+        jobarray.forEach(element => {
+            let jobcard=`
+                        <div class="col-4">
+                            <div class="card py-3 px-3 mx-3">
+                                <div class="card-header">
+                                    <h2>${element.company_name}</h2>
+                                </div>
+                                <div class="card-body">
+                                  <h3>${element.role}</h3>
+                                  <p>${element.salary}</p>
+                                  <p>${element.location}</p>
+                                  <button class="btn btn-danger">Apply now</button>
+
+                                </div>
+                            </div>
+                        </div>`
+           ctn.innerHTML +=jobcard
+            
+        });
+         
+    }
+    display(jobs)
+    document.getElementById("filter").addEventListener("change",function()
+{
+    let value= this.value
+    if (value==="all")
+{
+    display(jobs)
+}
+else
+{
+    let filtered=jobs.filter(x=>x.location===value)
+    display(filtered)
+}
+})
+</script>
+</html>
